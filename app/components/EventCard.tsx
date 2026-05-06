@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 
 interface Props {
   title: string;
@@ -11,13 +14,32 @@ interface Props {
 }
 const EventCard = ({ title, image, slug, location, date, time }: Props) => {
   return (
-    <Link href={`/events/${slug}`} id="event-card">
-      <Image src={image} alt={title} width={410} height={300} />
+    <Link
+      href={`/events/${slug}`}
+      id="event-card"
+      onClick={() =>
+        posthog.capture("event_card_clicked", {
+          event_title: title,
+          event_slug: slug,
+          event_location: location,
+          event_date: date,
+        })
+      }
+    >
+      <Image src={image} alt={title} width={410} height={300} loading="eager" />
       <div className="flex gap-2">
         <Image src={"/icons/pin.svg"} alt="location" width={14} height={14} />
         <p>{location}</p>
       </div>
       <p className="title">{title}</p>
+      <div className="datetime">
+        <Image src={"/icons/calendar.svg"} alt="date" width={14} height={14} />
+        <p>{date}</p>
+        <div>
+          <Image src={"/icons/clock.svg"} alt="time" width={14} height={14} />
+          <p>{time}</p>
+        </div>
+      </div>
     </Link>
   );
 };

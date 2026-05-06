@@ -183,6 +183,11 @@
   #event-card {
     @apply flex flex-col gap-3;
 
+    img {
+      width: auto;
+      height: auto;
+    }
+
     .poster {
       @apply h-[300px] w-full rounded-lg object-cover;
     }
