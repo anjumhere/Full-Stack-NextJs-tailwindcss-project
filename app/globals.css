@@ -124,6 +124,11 @@
     @apply bg-background text-foreground;
   }
 
+  img {
+    width: auto;
+    height: auto;
+  }
+
   main {
     @apply mx-auto container flex flex-col sm:px-10 px-5 py-10;
   }
@@ -182,11 +187,6 @@
 
   #event-card {
     @apply flex flex-col gap-3;
-
-    img {
-      width: auto;
-      height: auto;
-    }
 
     .poster {
       @apply h-[300px] w-full rounded-lg object-cover;
