@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -131,9 +133,9 @@
   }
 
   h3 {
-    @apply font-schibsted-grotesk text-2xl font-bold;
+    @apply text-2xl font-bold;
+    font-family: "Schibsted Grotesk", sans-serif;
   }
-
   ul {
     @apply list-disc list-inside;
   }
@@ -238,7 +240,8 @@
     }
 
     h2 {
-      @apply font-schibsted-grotesk text-2xl font-bold;
+      @apply text-2xl font-bold;
+      font-family: "Schibsted Grotesk", sans-serif;
     }
 
     p {
