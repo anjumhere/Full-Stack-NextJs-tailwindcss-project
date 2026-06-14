@@ -2,28 +2,35 @@ import { events } from "@/lib/constants";
 import EventCard from "./components/EventCard";
 import ExploreBtn from "./components/ExploreBtn";
 
-const page = () => {
+const HomePage = () => {
   return (
-    <section>
-      <h1 className="text-center">
-        The Hub for Every Dev <br /> Event You Can't Miss
-      </h1>
-      <p className="text-center mt-5">
-        Hackthons, Meetups, and Conferences, All in One
-      </p>
-      <ExploreBtn />
+    <section className="max-w-6xl mx-auto px-4 py-12">
+      <div className="text-center space-y-4">
+        <h1>
+          The Hub for Every Dev <br /> Event You Can&apos;t Miss
+        </h1>
+        <p className="text-gray-500">
+          Hackathons, Meetups, and Conferences, All in One
+        </p>
+        <ExploreBtn />
+      </div>
+
       <div className="mt-20 space-y-7">
         <h3>Featured Events</h3>
-        <ul className="events list-none">
-          {events.map((event) => (
-            <li key={event.title}>
-              <EventCard {...event} />
-            </li>
-          ))}
-        </ul>
+        {events.length > 0 ? (
+          <ul className="events list-none">
+            {events.map((event) => (
+              <li key={event.slug}>
+                <EventCard {...event} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-gray-400">No events found.</p>
+        )}
       </div>
     </section>
   );
 };
 
-export default page;
+export default HomePage;
